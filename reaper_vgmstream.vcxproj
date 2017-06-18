@@ -71,11 +71,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>vgmstream\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)$(Platform)\Release2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Release2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>vgmstream\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)$(Platform)\Release2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Release2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>vgmstream\src;$(IncludePath)</IncludePath>
@@ -95,6 +95,9 @@
     <Link>
       <AdditionalDependencies>libvgmstream.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(OutDir)$(TargetFileName) "C:\Program Files (x86)\REAPER\Plugins"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -124,6 +127,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>libvgmstream.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(OutDir)$(TargetFileName) "C:\Program Files (x86)\REAPER\Plugins"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
